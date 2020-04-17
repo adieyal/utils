@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 def qsdict(qs, *args):
     """
     Convert a query string to a nested dict
