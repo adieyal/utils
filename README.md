@@ -221,3 +221,6 @@ if re_names.search("some text JAMES some text"):
 ```
 
 It does not provide much value when `len(names)` is small, but shows dramatic improvement as the length of tokens increases
+
+Here is a comparison of optimised vs unoptimised regular expressions
+![Here is a comparison of optimised vs unoptimised regular expressions](https://github.com/adieyal/utils/raw/master/assets/performance.png)
