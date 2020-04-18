@@ -205,3 +205,19 @@ mergedict(d0, d2)
 ```
 
 This can be repeated an arbitary number of times to create a complicated data structure while avoiding nested loops and unwieldy code. This code is courtsey of this Stack Overflow [thread](https://stackoverflow.com/questions/7204805/how-to-merge-dictionaries-of-dictionaries).
+
+## regex.optimise
+
+Simple regex list optimiser. Takes in a list of words and helps the regex engine along by recursively adding parentheses in the correct places e.g a list of the following names JEFF, JAMES, JEREMY, JUSTIN, JASON, JEFFREY will become `J(A(MES|SON)|E(F(F(REY))|REMY)|USTIN)`. Use when you want to check for the existence of a token in a string. e.g.
+
+```python
+import re
+import regex
+names = ['JEFF', 'JAMES', 'JEREMY', 'JUSTIN', 'JASON', 'JEFFREY']
+
+re_names = re.compile("(" + regex.optimise(names) + ")")
+if re_names.search("some text JAMES some text"):
+    print("search string contains 'JAMES'")
+```
+
+It does not provide much value when `len(names)` is small, but shows dramatic improvement as the length of tokens increases
