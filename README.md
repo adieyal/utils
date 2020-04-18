@@ -1,5 +1,5 @@
 # utils
-## qsdict
+## dictutils.qsdict
 
 Takes a list of dicts or objects and convert it into nested dicts.
 
@@ -130,7 +130,7 @@ qsdict(lst, lambda x: x["colour"][0:2], "shape", ("country","count"))
 }
 ```
 
-## mergedict
+## dictutils.mergedict
 
 Merges two nested dictionaries. Note that the first dictionary is updated.
 
