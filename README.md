@@ -129,3 +129,79 @@ qsdict(lst, lambda x: x["colour"][0:2], "shape", ("country","count"))
     }
 }
 ```
+
+## mergedict
+
+Merges two nested dictionaries. Note that the first dictionary is updated.
+
+```python
+d1 = {
+    "blue": {
+        "circle": {
+            "France": 5
+        },
+        "square": {
+            "China": 10
+        }
+    },
+    "pink": {
+        "circle": {
+            "Germany": 15
+        }
+    },
+    "yellow": {
+        "square": {
+            "France": 29
+        }
+    }
+}
+
+d2 = {
+    "blue": {
+        "brightness": 4,
+    },
+    "pink": {
+        "brightness": 4,
+    },
+    "yellow": {
+        "brightness": 4,
+    }
+}
+
+mergedict(d1, d2)
+
+print(d1)
+
+{
+    "blue": {
+        "circle": {
+            "France": 5
+        },
+        "square": {
+            "China": 10
+        },
+        "brightness": 4
+    },
+    "pink": {
+        "circle": {
+            "Germany": 15
+        },
+        "brightness": 4
+    },
+    "yellow": {
+        "square": {
+            "France": 29
+        },
+        "brightness": 4
+    }
+}
+```
+
+If you don't want to clobber the first dictionary, provide an empty dictionary
+```
+d0 = {}
+mergedict(d0, d1)
+mergedict(d0, d2)
+```
+
+This can be repeated an arbitary number of times to create a complicated data structure while avoiding nested loops and unwieldy code. This code is courtsey of this Stack Overflow [thread](https://stackoverflow.com/questions/7204805/how-to-merge-dictionaries-of-dictionaries).
