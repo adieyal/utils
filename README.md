@@ -1,5 +1,5 @@
 # utils
-## qsdict
+## dictutils.qsdict
 
 Takes a list of dicts or objects and convert it into nested dicts.
 
@@ -130,7 +130,7 @@ qsdict(lst, lambda x: x["colour"][0:2], "shape", ("country","count"))
 }
 ```
 
-## mergedict
+## dictutils.mergedict
 
 Merges two nested dictionaries. Note that the first dictionary is updated.
 
@@ -221,3 +221,6 @@ if re_names.search("some text JAMES some text"):
 ```
 
 It does not provide much value when `len(names)` is small, but shows dramatic improvement as the length of tokens increases
+
+Here is a comparison of optimised vs unoptimised regular expressions
+![Here is a comparison of optimised vs unoptimised regular expressions](https://github.com/adieyal/utils/raw/master/assets/performance.png)
